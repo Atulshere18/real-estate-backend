@@ -1,25 +1,13 @@
 const express = require("express");
-const Joi = require("joi");
 const Property = require("../models/Property");
 const authMiddleware = require("../middleware/authmiddleware");
 const mongoose = require("mongoose");
 const router = express.Router();
 
-const propertySchema = Joi.object({
-    title: Joi.string().min(3).max(100).required(),
-    description: Joi.string().min(10).max(1000).required(),
-    location: Joi.string().min(3).max(100).required(),
-    price: Joi.number().min(1).required(),
-    image: Joi.string().uri().optional()
-});
+
 router.post("/", authMiddleware, async (req, res) => {
     try {
-         const { error } = propertySchema.validate(req.body);
-        if (error) {
-            return res.status(400).json({ error: `Validation error: ${error.details[0].message}` });
-        }
-
-        const { title, location } = req.body;
+               const { title, location } = req.body;
 
         const existingProperty = await Property.findOne({ title, location, userId: req.user.id });
         if (existingProperty) {
