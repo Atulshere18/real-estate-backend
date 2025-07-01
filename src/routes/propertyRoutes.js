@@ -1,6 +1,6 @@
 const express = require("express");
 const Property = require("../models/Property");
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/authmiddleware");
 const mongoose = require("mongoose");
 const router = express.Router();
 
