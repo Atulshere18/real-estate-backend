@@ -54,17 +54,17 @@ API Endpoints
 
 Authentication
 
-POST /auth/signup: Create a new user account.
+POST api/auth/signup: Create a new user account.
 
-POST /auth/login: Login and receive a JWT token.
+POST api/auth/login: Login and receive a JWT token.
 
 Properties
 
-GET /properties: Retrieve a list of properties (supports search and pagination).
+GET api/properties: Retrieve a list of properties (supports search and pagination).
 
-POST /properties: Add a new property.
+POST api/properties: Add a new property.
 
-PUT /properties/:id: Update an existing property.
+PUT api/properties/:id: Update an existing property.
 
-DELETE /properties/:id: Delete a property.
+DELETE api/properties/:id: Delete a property.
 
